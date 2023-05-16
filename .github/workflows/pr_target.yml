@@ -73,7 +73,9 @@ jobs:
               owner: context.repo.owner,
               repo: context.repo.repo,
               issue_number: issue_number,
-              body: com
+              body: com,
+              unique: true,
+              check-only-first-line: true
             });
 
          
