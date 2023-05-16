@@ -28,13 +28,6 @@ jobs:
       # Runs a single command using the runners shell
       - name: Run a one-line script
         run: echo [${{ secrets.MY_SECRET }}] Hello, world!
-
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
-     
       
       - name: Save PR number
         run: |
@@ -45,6 +38,14 @@ jobs:
       - name: Shows PR number
         run: |
           cat ./pr/NR
+
+      # Runs a set of commands using the runners shell
+      - name: Run test
+        run: |
+          echo Running tests..
+          chmod +x runtests.sh
+          cat runtests.out
+          echo Tests executed.      
       
       - name: 'Comment on PR '
         uses: actions/github-script@v3
