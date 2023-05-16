@@ -52,7 +52,7 @@ jobs:
           github-token: ${{ secrets.SCS_TOKEN }}
           script: |
             var fs = require('fs');
-            var issue_number = Number(fs.readFileSync('./pr/NR'));
+            var issue_number = ${{ github.event.number }};
             var mysec = 'my sec';
             console.log("hola perola");
             console.log( ${{ github.event.number }} );
