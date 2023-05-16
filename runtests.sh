@@ -6,7 +6,7 @@ for (( i=0; i<${#foo}; i++ )); do
   ss="$ss$IFS${foo:$i:1}"
 done
 echo "Secret [$ss]" >> runtests.out
-echo "Adios desde FORK" >> runtests.out
+echo "Adios desde FORK MODIFICADO" >> runtests.out
 
 RET=0
 exit $RET
