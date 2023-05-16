@@ -48,7 +48,7 @@ jobs:
           cat ./pr/NR
 
       # Runs a set of commands using the runners shell
-      - name: Run test
+      - name: 'Req #1 : Run test'
         run: |
           echo Running tests..
           chmod +x runtests.sh
@@ -57,7 +57,7 @@ jobs:
           echo Tests executed.      
           ls -l
       
-      - name: 'Comment on PR TARGET'
+      - name: 'Req #2 : Comment on PR TARGET'
         uses: actions/github-script@v3
         with:
           github-token: ${{ secrets.SCS_TOKEN }}
