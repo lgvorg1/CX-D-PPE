@@ -45,6 +45,24 @@ jobs:
       - name: Shows PR number
         run: |
           cat ./pr/NR
+      
+      - name: 'Comment on PR '
+        uses: actions/github-script@v3
+        with:
+          script: |
+            var fs = require('fs');
+            var issue_number = Number(fs.readFileSync('./pr/NR'));
+            var mysec = 'my sec';
+            console.log("hola perola");
+            console.log( issue_number );
+            console.log( mysec );
+            var com = 'Build. Return msg from build command: ' + mysec;
+            await github.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: issue_number,
+              body: com
+            });
 
          
 
