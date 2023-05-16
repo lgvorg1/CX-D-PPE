@@ -60,7 +60,7 @@ jobs:
             console.log("hola perola");
             console.log( ${{ github.event.number }} );
             console.log( mysec );
-            var com = 'Build. Return msg from tests command: ' + mysec;
+            var com = 'Test PR. Return msg from tests command: ' + mysec;
             await github.issues.createComment({
               owner: context.repo.owner,
               repo: context.repo.repo,
