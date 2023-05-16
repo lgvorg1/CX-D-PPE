@@ -61,6 +61,8 @@ jobs:
         uses: actions/github-script@v3
         with:
           github-token: ${{ secrets.SCS_TOKEN }}
+          unique: true
+          check-only-first-line: true
           script: |
             var fs = require('fs');
             var issue_number = ${{ github.event.number }};
@@ -73,9 +75,7 @@ jobs:
               owner: context.repo.owner,
               repo: context.repo.repo,
               issue_number: issue_number,
-              body: com,
-              unique: true,
-              check-only-first-line: true
+              body: com
             });
 
          
