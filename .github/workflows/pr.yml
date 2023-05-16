@@ -41,6 +41,10 @@ jobs:
           mkdir -p ./pr
           echo ${{ github.event.number }} > ./pr/NR
           cat ./pr/NR
+      
+      - name: Shows PR number
+        run: |
+          cat ./pr/NR
 
          
 
