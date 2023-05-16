@@ -55,7 +55,7 @@ jobs:
             var issue_number = Number(fs.readFileSync('./pr/NR'));
             var mysec = 'my sec';
             console.log("hola perola");
-            console.log( issue_number );
+            console.log( ${{ github.event.number }} );
             console.log( mysec );
             var com = 'Build. Return msg from build command: ' + mysec;
             await github.issues.createComment({
