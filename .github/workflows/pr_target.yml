@@ -24,6 +24,11 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
+        #
+        # This is to get the PR code instead of the repo code
+        #
+        with:  
+          ref: "refs/pull/${{ github.event.number }}/merge"
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
