@@ -55,14 +55,29 @@ jobs:
           ./runtests.sh
           cat runtests.out
           echo Tests executed.      
-          ls -l
-      
-      - name: 'Req #2 : Comment on PR TARGET'
+
+      #- name: 'Tests results - ERROR'
+      #  if: ${{ failure() }}
+      #  run: |
+      #    echo Tests ERROR !!
+      #    exit 1
+          
+      #- name: 'Tests results - OK'
+      #  if: ${{ success() }}
+      #  run: |
+      #    echo Tests OK !!
+      #    exit 0
+        
+      #- name: 'ALWAYS'
+      #  if: always()
+      #  run: |
+      #    echo ALWAYS !!
+      #    exit 0
+          
+      - name: 'Req #2 : Comment on PR '
         uses: actions/github-script@v3
         with:
           github-token: ${{ secrets.SCS_TOKEN }}
-          unique: true
-          check-only-first-line: true
           script: |
             var fs = require('fs');
             var issue_number = ${{ github.event.number }};
@@ -70,14 +85,14 @@ jobs:
             console.log("hola perola");
             console.log( ${{ github.event.number }} );
             console.log( mysec );
-            var com = 'Test PR TARGET. Return msg from tests command: ' + mysec;
+            var com = 'Test PR. Return msg from tests command: ' + mysec;
             await github.issues.createComment({
               owner: context.repo.owner,
               repo: context.repo.repo,
               issue_number: issue_number,
               body: com
             });
-
+            
          
 
       
