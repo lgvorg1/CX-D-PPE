@@ -106,6 +106,8 @@ jobs:
           server_port: 465
           # Optional whether this connection use TLS (default is true if server_port is 465)
           secure: true
+          # Required mail subject:
+          subject: Github Actions job result
           # Required recipients' addresses:
           to: lmgarciaviejo@gmail.com
           # Required sender full name (address can be skipped):
